@@ -1,0 +1,41 @@
+.rei-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rei-hidden {
+  display: none !important;
+}
+
+.rei-text-soft {
+  color: var(--color-text-soft);
+}
+.rei-text-primary {
+  color: var(--color-primary);
+}
+
+.rei-card {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+}
+
+.rei-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: all var(--transition-normal) ease;
+}
+.rei-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}

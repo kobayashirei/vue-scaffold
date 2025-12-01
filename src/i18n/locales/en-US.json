@@ -1,0 +1,15 @@
+{
+  "common": {
+    "welcome": "Welcome to Rei",
+    "about": "About",
+    "home": "Home",
+    "language": "Language",
+    "blog": "Blog",
+    "posts": "Posts",
+    "notFound": "Content not found"
+  },
+  "button": {
+    "submit": "Submit",
+    "cancel": "Cancel"
+  }
+}

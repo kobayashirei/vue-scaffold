@@ -1,6 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
+import pkg from './package.json' assert { type: 'json' }
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
@@ -8,13 +9,27 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 // custom plugins
 import AutoImport from "unplugin-auto-import/vite"
 import Components from 'unplugin-vue-components/vite'
+import Pages from 'vite-plugin-pages'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    __APP_NAME__: JSON.stringify(pkg.name || 'Rei'),
+    __APP_VERSION__: JSON.stringify(pkg.version || '0.0.0'),
+    __APP_CSS_PREFIX__: JSON.stringify('rei'),
+  },
   plugins: [
     vue(),
     vueJsx(),
     vueDevTools(),
+    Pages({
+      dirs: 'src/pages',
+      exclude: ['**/components/*.vue'],
+    }),
+    VueI18nPlugin({
+      include: [fileURLToPath(new URL('./src/i18n/locales/**', import.meta.url))],
+    }),
     AutoImport({
       imports: [
         'vue', // ref, computed, reactive...

@@ -1,7 +1,7 @@
 import { createPinia, type Pinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
-export function PiniaApplition(): Pinia {
+export function PiniaApplication(): Pinia {
   const pinia = createPinia()
   // 配置持久化缓存
   pinia.use(piniaPluginPersistedstate)

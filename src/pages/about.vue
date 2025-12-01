@@ -8,10 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useCounterStore } from '@/stores/counter'
-
-// const x = useCounter
-
 const c = useCounterStore()
 </script>
 

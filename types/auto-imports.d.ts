@@ -212,6 +212,7 @@ declare global {
   const useKeyModifier: typeof import('@vueuse/core').useKeyModifier
   const useLastChanged: typeof import('@vueuse/core').useLastChanged
   const useLink: typeof import('vue-router').useLink
+  const useLoadingStore: typeof import('../src/stores/loading').useLoadingStore
   const useLocalStorage: typeof import('@vueuse/core').useLocalStorage
   const useMagicKeys: typeof import('@vueuse/core').useMagicKeys
   const useManualRefHistory: typeof import('@vueuse/core').useManualRefHistory
@@ -327,6 +328,12 @@ declare global {
   // @ts-ignore
   export type { counterState } from '../src/stores/counter'
   import('../src/stores/counter')
+  // @ts-ignore
+  export type { AppMetaConfig, UiConfig, I18nConfig, RouteConfig, BuildConfig, AppConfig } from '../src/types/config'
+  import('../src/types/config')
+  // @ts-ignore
+  export type { DefineStoreOptionsBase } from '../src/types/pinia-plugin-persistedstate.d'
+  import('../src/types/pinia-plugin-persistedstate.d')
   // @ts-ignore
   export type { BasicPinia } from '../src/types/pinia'
   import('../src/types/pinia')
@@ -543,6 +550,7 @@ declare module 'vue' {
     readonly useKeyModifier: UnwrapRef<typeof import('@vueuse/core')['useKeyModifier']>
     readonly useLastChanged: UnwrapRef<typeof import('@vueuse/core')['useLastChanged']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
+    readonly useLoadingStore: UnwrapRef<typeof import('../src/stores/loading')['useLoadingStore']>
     readonly useLocalStorage: UnwrapRef<typeof import('@vueuse/core')['useLocalStorage']>
     readonly useMagicKeys: UnwrapRef<typeof import('@vueuse/core')['useMagicKeys']>
     readonly useManualRefHistory: UnwrapRef<typeof import('@vueuse/core')['useManualRefHistory']>

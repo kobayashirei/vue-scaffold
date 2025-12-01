@@ -1,0 +1,15 @@
+{
+  "common": {
+    "welcome": "欢迎来到 Rei",
+    "about": "关于",
+    "home": "首页",
+    "language": "语言",
+    "blog": "博客",
+    "posts": "文章",
+    "notFound": "内容不存在"
+  },
+  "button": {
+    "submit": "提交",
+    "cancel": "取消"
+  }
+}
