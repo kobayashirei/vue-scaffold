@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    About
     <h1>This is an about page / {{ c.count }}</h1>
     <h2>{{ c.version }}</h2>
     <button @click="c.increment">Double Count</button>
@@ -8,6 +9,8 @@
 
 <script lang="ts" setup>
 import { useCounterStore } from '@/stores/counter'
+
+// const x = useCounter
 
 const c = useCounterStore()
 </script>

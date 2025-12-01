@@ -1,8 +1,8 @@
 import { ref, computed, type Ref } from 'vue'
 import { defineStore } from 'pinia'
-import type { piniaStateBase } from '@/types/pinia'
+import type { BasicPinia } from '@/types/pinia'
 
-export interface counterState extends piniaStateBase {
+export interface counterState extends BasicPinia {
   count: Ref<number>
   doubleCount: Ref<number>
   increment: () => void

@@ -1,3 +1,3 @@
-export interface piniaStateBase {
+export interface BasicPinia {
   version: string | null
 }
