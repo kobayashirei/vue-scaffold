@@ -5,7 +5,6 @@
 
 <script setup lang="ts">
 import MarkdownIt from 'markdown-it'
-import ImageLightbox from '@/components/ImageLightbox.vue'
 const props = defineProps<{ content: string }>()
 const md = new MarkdownIt({ linkify: true, html: false })
 const html = computed(() => md.render(props.content || ''))

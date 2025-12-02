@@ -36,3 +36,73 @@ export interface AppConfig {
   route: RouteConfig
   build: BuildConfig
 }
+
+// config
+
+export type SiteConfig = {
+  test_num: number
+  title: string;
+  subtitle: string;
+
+  lang:
+  | "zh_CN"
+  | "en_US"
+  | "ja";
+
+  themeColor: {
+    hue: number;
+    fixed: boolean;
+  };
+  banner: {
+    enable: boolean;
+    src: string;
+    position?: "top" | "center" | "bottom";
+    credit: {
+      enable: boolean;
+      text: string;
+      url?: string;
+    };
+  };
+  toc: {
+    enable: boolean;
+    depth: 1 | 2 | 3;
+  };
+
+  favicon: Favicon[];
+};
+
+export type Favicon = {
+  src: string;
+  theme?: "light" | "dark";
+  sizes?: string;
+};
+
+export interface SiteConfig2 {
+  title: string
+  subtitle: string
+  lang: string
+  themeColor: {
+    hue: number
+    fixed: boolean
+  }
+  banner: {
+    enable: boolean
+    src: string
+    position: string
+    credit: {
+      enable: boolean
+      text: string
+      url: string
+    }
+
+  }
+  toc: {
+    enable: boolean
+    depth: number
+  }
+  favicon: Array<{
+    src: string
+    theme: string
+    sizes: string
+  }>
+}

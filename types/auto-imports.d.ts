@@ -7,6 +7,7 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue').EffectScope
+  const Markdow: typeof import('../src/utils/markdown').Markdow
   const acceptHMRUpdate: typeof import('pinia').acceptHMRUpdate
   const asyncComputed: typeof import('@vueuse/core').asyncComputed
   const autoResetRef: typeof import('@vueuse/core').autoResetRef
@@ -39,6 +40,7 @@ declare global {
   const defineStore: typeof import('pinia').defineStore
   const eagerComputed: typeof import('@vueuse/core').eagerComputed
   const effectScope: typeof import('vue').effectScope
+  const expressiveCodeConfig: typeof import('../src/config/config').expressiveCodeConfig
   const extendRef: typeof import('@vueuse/core').extendRef
   const getActivePinia: typeof import('pinia').getActivePinia
   const getCurrentInstance: typeof import('vue').getCurrentInstance
@@ -55,6 +57,7 @@ declare global {
   const isReadonly: typeof import('vue').isReadonly
   const isRef: typeof import('vue').isRef
   const isShallow: typeof import('vue').isShallow
+  const licenseConfig: typeof import('../src/config/config').licenseConfig
   const makeDestructurable: typeof import('@vueuse/core').makeDestructurable
   const mapActions: typeof import('pinia').mapActions
   const mapGetters: typeof import('pinia').mapGetters
@@ -62,7 +65,10 @@ declare global {
   const mapStores: typeof import('pinia').mapStores
   const mapWritableState: typeof import('pinia').mapWritableState
   const markRaw: typeof import('vue').markRaw
+  const markdown: typeof import('../src/utils/markdown').markdown
+  const markdownUtil: typeof import('../src/utils/markdown').markdownUtil
   const mergeDeep: typeof import('../src/utils/object').mergeDeep
+  const navBarConfig: typeof import('../src/config/config').navBarConfig
   const nextTick: typeof import('vue').nextTick
   const onActivated: typeof import('vue').onActivated
   const onBeforeMount: typeof import('vue').onBeforeMount
@@ -86,6 +92,7 @@ declare global {
   const onUpdated: typeof import('vue').onUpdated
   const onWatcherCleanup: typeof import('vue').onWatcherCleanup
   const pausableWatch: typeof import('@vueuse/core').pausableWatch
+  const profileConfig: typeof import('../src/config/config').profileConfig
   const provide: typeof import('vue').provide
   const provideLocal: typeof import('@vueuse/core').provideLocal
   const reactify: typeof import('@vueuse/core').reactify
@@ -110,6 +117,7 @@ declare global {
   const shallowReadonly: typeof import('vue').shallowReadonly
   const shallowRef: typeof import('vue').shallowRef
   const singleton: typeof import('../src/utils/singleton').singleton
+  const siteConfig: typeof import('../src/config/config').siteConfig
   const sleep: typeof import('../src/utils/function').sleep
   const storeToRefs: typeof import('pinia').storeToRefs
   const syncRef: typeof import('@vueuse/core').syncRef
@@ -134,6 +142,7 @@ declare global {
   const until: typeof import('@vueuse/core').until
   const useActiveElement: typeof import('@vueuse/core').useActiveElement
   const useAnimate: typeof import('@vueuse/core').useAnimate
+  const useAppConfigureStore: typeof import('../src/stores/config').useAppConfigureStore
   const useArrayDifference: typeof import('@vueuse/core').useArrayDifference
   const useArrayEvery: typeof import('@vueuse/core').useArrayEvery
   const useArrayFilter: typeof import('@vueuse/core').useArrayFilter
@@ -160,6 +169,8 @@ declare global {
   const useClipboardItems: typeof import('@vueuse/core').useClipboardItems
   const useCloned: typeof import('@vueuse/core').useCloned
   const useColorMode: typeof import('@vueuse/core').useColorMode
+  const useConfigStore: typeof import('../src/stores/config').useConfigStore
+  const useConfigureStore: typeof import('../src/stores/config').useConfigureStore
   const useConfirmDialog: typeof import('@vueuse/core').useConfirmDialog
   const useCountdown: typeof import('@vueuse/core').useCountdown
   const useCounter: typeof import('@vueuse/core').useCounter
@@ -300,9 +311,12 @@ declare global {
   const useWebSocket: typeof import('@vueuse/core').useWebSocket
   const useWebWorker: typeof import('@vueuse/core').useWebWorker
   const useWebWorkerFn: typeof import('@vueuse/core').useWebWorkerFn
+  const useWebsiteStore: typeof import('../src/stores/config').useWebsiteStore
   const useWindowFocus: typeof import('@vueuse/core').useWindowFocus
   const useWindowScroll: typeof import('@vueuse/core').useWindowScroll
   const useWindowSize: typeof import('@vueuse/core').useWindowSize
+  const useconfigureStore: typeof import('../src/stores/config').useconfigureStore
+  const util: typeof import('../src/utils/markdown').util
   const watch: typeof import('vue').watch
   const watchArray: typeof import('@vueuse/core').watchArray
   const watchAtMost: typeof import('@vueuse/core').watchAtMost
@@ -329,7 +343,7 @@ declare global {
   export type { counterState } from '../src/stores/counter'
   import('../src/stores/counter')
   // @ts-ignore
-  export type { AppMetaConfig, UiConfig, I18nConfig, RouteConfig, BuildConfig, AppConfig } from '../src/types/config'
+  export type { AppMetaConfig, UiConfig, I18nConfig, RouteConfig, BuildConfig, AppConfig, SiteConfig, Favicon, SiteConfig2 } from '../src/types/config'
   import('../src/types/config')
   // @ts-ignore
   export type { DefineStoreOptionsBase } from '../src/types/pinia-plugin-persistedstate.d'
@@ -400,6 +414,7 @@ declare module 'vue' {
     readonly mapStores: UnwrapRef<typeof import('pinia')['mapStores']>
     readonly mapWritableState: UnwrapRef<typeof import('pinia')['mapWritableState']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
+    readonly markdownUtil: UnwrapRef<typeof import('../src/utils/markdown')['markdownUtil']>
     readonly mergeDeep: UnwrapRef<typeof import('../src/utils/object')['mergeDeep']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
@@ -472,6 +487,7 @@ declare module 'vue' {
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
     readonly useActiveElement: UnwrapRef<typeof import('@vueuse/core')['useActiveElement']>
     readonly useAnimate: UnwrapRef<typeof import('@vueuse/core')['useAnimate']>
+    readonly useAppConfigureStore: UnwrapRef<typeof import('../src/stores/config')['useAppConfigureStore']>
     readonly useArrayDifference: UnwrapRef<typeof import('@vueuse/core')['useArrayDifference']>
     readonly useArrayEvery: UnwrapRef<typeof import('@vueuse/core')['useArrayEvery']>
     readonly useArrayFilter: UnwrapRef<typeof import('@vueuse/core')['useArrayFilter']>

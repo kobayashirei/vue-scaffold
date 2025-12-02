@@ -18,8 +18,8 @@ export const config: AppConfig = {
     },
   },
   i18n: {
-    defaultLocale: 'zh-CN',
-    fallbackLocale: 'en-US',
+    defaultLocale: 'zh_CN',
+    fallbackLocale: 'en_US',
   },
   route: {
     names: {

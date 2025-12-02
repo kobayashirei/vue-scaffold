@@ -1,7 +1,14 @@
 <script setup lang="ts">
-// import TheWelcome from '../components/TheWelcome.vue'
+const c = useAppConfigureStore()
+function add() {
+  c.siteConfig.test_num++
+}
 </script>
 
 <template>
-  <main>Home</main>
+  <main>
+    <!-- {{ c.siteConfig.title }} -->
+    <h1>{{ c.siteConfig.test_num }}</h1>
+    <button @click="add">btn</button>
+  </main>
 </template>

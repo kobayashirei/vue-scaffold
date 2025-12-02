@@ -1,6 +1,6 @@
 import { createI18n } from 'vue-i18n'
-import zhCN from './locales/zh-CN.json'
-import enUS from './locales/en-US.json'
+import zhCN from './locales/zh_CN.json'
+import enUS from './locales/en_US.json'
 import { useAppConfig } from '@/app/config'
 
 // 默认语言
@@ -11,8 +11,8 @@ const i18n = createI18n({
   locale: defaultLocale,
   fallbackLocale: useAppConfig().i18n.fallbackLocale,
   messages: {
-    'zh-CN': zhCN,
-    'en-US': enUS,
+    'zh_CN': zhCN,
+    'en_US': enUS,
   },
 })
 

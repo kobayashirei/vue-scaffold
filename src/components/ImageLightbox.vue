@@ -11,6 +11,12 @@ import { useAppConfig } from '@/app/config'
 const props = defineProps<{ src: string; visible: boolean }>()
 const emit = defineEmits<{ close: [] }>()
 const transition = useAppConfig().ui.transitions.fade
+
+//
+
+function t() {
+  console.log(props)
+}
 </script>
 
 <style scoped>
